@@ -1,0 +1,2 @@
+CREATE DATABASE IF NOT EXISTS dev_db;
+USE dev_db;
