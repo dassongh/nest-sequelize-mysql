@@ -1,0 +1,27 @@
+version: '3.8'
+
+networks:
+  app-network:
+    driver: bridge
+
+services:
+  mysql:
+    image: mysql
+    restart: always
+    env_file:
+      - .env.db
+    ports:
+      - '3306:3306'
+    networks:
+      - app-network
+
+  mysql-test:
+    image: mysql
+    environment:
+      MYSQL_DB: 'mysql'
+      MYSQL_USER: 'mysql'
+      MYSQL_PASSWORD: 'awesome-password'
+    ports:
+      - '3307:3306'
+    networks:
+      - app-network
