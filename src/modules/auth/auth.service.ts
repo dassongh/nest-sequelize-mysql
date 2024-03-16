@@ -6,8 +6,8 @@ import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 
 import { TokenType } from './constants';
-import { SignInDto, SignUpDto } from './dto';
-import { TokenData, TokenPayload } from './interfaces';
+import { SignInDto, SignUpDto, TokenDataDto } from './dto';
+import { TokenPayload } from './interfaces';
 
 import { SessionService } from '../session/session.service';
 import { GetUserDto } from '../user/dto';
@@ -34,7 +34,7 @@ export class AuthService {
     return user;
   }
 
-  public async signIn(clientId: string, dto: SignInDto): Promise<TokenData> {
+  public async signIn(clientId: string, dto: SignInDto): Promise<TokenDataDto> {
     const user = await this.userService.getUserByEmail(dto.email);
     if (!user) {
       throw new UnauthorizedException('Credentials incorrect');

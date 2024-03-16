@@ -1,8 +1,12 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { User } from '../user.entity';
 
 export class GetUserDto {
+  @ApiProperty()
   readonly id: string;
+  @ApiProperty()
   readonly name: string;
+  @ApiProperty()
   readonly email: string;
 
   constructor(user: User) {

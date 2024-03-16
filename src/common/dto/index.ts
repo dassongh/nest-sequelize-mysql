@@ -1,1 +1,1 @@
-export * from './find-one-params.dto';
+export * from './status-ok.dto';
