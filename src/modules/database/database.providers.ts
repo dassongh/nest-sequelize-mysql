@@ -19,11 +19,7 @@ export const databaseProviders = [
         database: config.get<string>('MYSQL_DB'),
       });
       sequelize.addModels([User, Session]);
-      try {
-        await sequelize.sync();
-      } catch (error) {
-        console.error(error);
-      }
+      await sequelize.sync();
       return sequelize;
     },
   },
